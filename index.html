@@ -1,86 +1,342 @@
+<!-- ========================= -->
+<!-- SAVE THIS FILE AS index.html -->
+<!-- ========================= -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sri Sri University</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
+<title>Sri Sri University Result Portal</title>
 
-    body{
-      height:100vh;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      font-family:Arial, sans-serif;
+<style>
 
-      /* Background Image */
-      background:url('sri-sri-logo.jpg') no-repeat center center/cover;
-      position:relative;
-    }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
-    /* Dark overlay */
-    body::before{
-      content:'';
-      position:absolute;
-      top:0;
-      left:0;
-      width:100%;
-      height:100%;
-      background:rgba(0,0,0,0.55);
-    }
+body{
+  font-family:Arial, sans-serif;
+  background:linear-gradient(135deg,#6b0000,#a00000);
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+}
 
-    .content{
-      position:relative;
-      z-index:2;
-      text-align:center;
-      color:white;
-    }
+.login-card,
+.result-card{
+  background:white;
+  width:100%;
+  max-width:1000px;
+  border-radius:15px;
+  padding:30px;
+  box-shadow:0 0 20px rgba(0,0,0,0.3);
+}
 
-    .content h1{
-      font-size:60px;
-      margin-bottom:15px;
-    }
+.login-card{
+  max-width:400px;
+  text-align:center;
+}
 
-    .content p{
-      font-size:22px;
-      letter-spacing:1px;
-    }
+.logo{
+  width:100px;
+  margin-bottom:15px;
+}
 
-    button{
-      margin-top:25px;
-      padding:12px 28px;
-      border:none;
-      border-radius:10px;
-      background:#ffcc00;
-      color:black;
-      font-size:18px;
-      cursor:pointer;
-      transition:0.3s;
-    }
+h1{
+  color:#800000;
+  margin-bottom:20px;
+}
 
-    button:hover{
-      background:white;
-      transform:scale(1.05);
-    }
-  </style>
+input{
+  width:100%;
+  padding:12px;
+  margin:10px 0;
+  border:1px solid #ccc;
+  border-radius:8px;
+  font-size:16px;
+}
+
+button{
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:8px;
+  background:#800000;
+  color:white;
+  font-size:18px;
+  cursor:pointer;
+  margin-top:10px;
+}
+
+button:hover{
+  background:#a00000;
+}
+
+.result-card{
+  display:none;
+}
+
+.top-info{
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  margin-bottom:20px;
+  gap:10px;
+  font-weight:bold;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+th{
+  background:#333;
+  color:white;
+  padding:12px;
+  font-size:14px;
+}
+
+td{
+  padding:10px;
+  border-bottom:1px solid #ddd;
+  text-align:center;
+  font-size:14px;
+}
+
+.pass{
+  background:#4CAF50;
+  color:white;
+  padding:5px 12px;
+  border-radius:5px;
+}
+
+.footer{
+  text-align:center;
+  margin-top:20px;
+  color:green;
+  font-size:22px;
+  font-weight:bold;
+}
+
+@media(max-width:700px){
+
+  table{
+    font-size:12px;
+  }
+
+  th,td{
+    padding:6px;
+  }
+
+}
+
+</style>
 </head>
 
 <body>
 
-  <div class="content">
-    <h1>Sri Sri University</h1>
-    <p>Welcome to My GitHub Website</p>
+<!-- LOGIN CARD -->
 
-    <button onclick="alert('Welcome to Sri Sri University')">
-      Explore
-    </button>
+<div class="login-card" id="loginPage">
+
+  <img src="sri-sri-logo.jpg" class="logo">
+
+  <h1>Sri Sri University</h1>
+
+  <input type="text" id="roll" placeholder="Enter Roll Number">
+
+  <input type="text" id="reg" placeholder="Enter Registration Number">
+
+  <button onclick="showResult()">
+    View Result
+  </button>
+
+</div>
+
+<!-- RESULT PAGE -->
+
+<div class="result-card" id="resultPage">
+
+  <center>
+    <img src="sri-sri-logo.jpg" class="logo">
+    <h1>SRI SRI UNIVERSITY</h1>
+  </center>
+
+  <div class="top-info">
+    <div>Roll No: 24BTECH001</div>
+    <div>Registration No: SSU2024AI001</div>
+    <div>SGPA: 8.02</div>
+    <div>Status: PASS</div>
   </div>
+
+  <table>
+
+    <tr>
+      <th>Subject Code</th>
+      <th>Subject Name</th>
+      <th>Credit</th>
+      <th>Grade</th>
+      <th>Result</th>
+    </tr>
+
+    <tr>
+      <td>HPC101</td>
+      <td>Happiness Connect 1</td>
+      <td>2</td>
+      <td>A</td>
+      <td><span class="pass">Pass</span></td>
+    </tr>
+
+    <tr>
+      <td>TAE101</td>
+      <td>Experiential Soft Competency-I</td>
+      <td>2</td>
+      <td>A+</td>
+      <td><span class="pass">Pass</span></td>
+    </tr>
+
+    <tr>
+      <td>TAI106</td>
+      <td>Introduction to AI</td>
+      <td>3</td>
+      <td>A</td>
+      <td><span class="pass">Pass</span></td>
+    </tr>
+
+    <tr>
+      <td>TAI107</td>
+      <td>Fundamental AI Lab</td>
+      <td>1</td>
+      <td>O</td>
+      <td><span class="pass">Pass</span></td>
+    </tr>
+
+    <tr>
+      <td>TBR011</td>
+      <td>Programming Logic</td>
+      <td>3</td>
+      <td>B+</td>
+      <td><span class="pass">Pass</span></td>
+    </tr>
+
+    <tr>
+      <td>TCS112</td>
+      <td>Hands-On C Programming</td>
+      <td>2</td>
+      <td>A+</td>
+      <td><span class="pass">Pass</span></td>
+    </tr>
+
+    <tr>
+      <td>TCS113</td>
+      <td>Foundations of C++</td>
+      <td>2</td>
+      <td>A</td>
+      <td><span class="pass">Pass</span></td>
+    </tr>
+
+    <tr>
+      <td>TEE101</td>
+      <td>Basic Electrical and Electronics Engineering</td>
+      <td>4</td>
+      <td>B</td>
+      <td><span class="pass">Pass</span></td>
+    </tr>
+
+    <tr>
+      <td>TEV101</td>
+      <td>Foundations of EV and Hybrid Vehicles</td>
+      <td>3</td>
+      <td>A</td>
+      <td><span class="pass">Pass</span></td>
+    </tr>
+
+    <tr>
+      <td>TGP101</td>
+      <td>General Proficiency-I</td>
+      <td>1</td>
+      <td>B+</td>
+      <td><span class="pass">Pass</span></td>
+    </tr>
+
+    <tr>
+      <td>TMD107</td>
+      <td>Engineering Physics</td>
+      <td>3</td>
+      <td>B</td>
+      <td><span class="pass">Pass</span></td>
+    </tr>
+
+    <tr>
+      <td>TMD108</td>
+      <td>Applied Mathematics</td>
+      <td>3</td>
+      <td>A</td>
+      <td><span class="pass">Pass</span></td>
+    </tr>
+
+    <tr>
+      <td>TSK101</td>
+      <td>Mechanical Workshop</td>
+      <td>3</td>
+      <td>O</td>
+      <td><span class="pass">Pass</span></td>
+    </tr>
+
+    <tr>
+      <td>TSK123</td>
+      <td>Computational Thinking and Problem Solving Techniques</td>
+      <td>4</td>
+      <td>A+</td>
+      <td><span class="pass">Pass</span></td>
+    </tr>
+
+    <tr>
+      <td>TVA101</td>
+      <td>Sustainable Development Goals</td>
+      <td>1</td>
+      <td>A</td>
+      <td><span class="pass">Pass</span></td>
+    </tr>
+
+  </table>
+
+  <div class="footer">
+    Congratulations! SGPA: 8.02 🎉
+  </div>
+
+</div>
+
+<script>
+
+function showResult(){
+
+  var roll = document.getElementById("roll").value;
+  var reg = document.getElementById("reg").value;
+
+  if(roll !== "" && reg !== ""){
+
+    document.getElementById("loginPage").style.display = "none";
+    document.getElementById("resultPage").style.display = "block";
+
+  }
+
+  else{
+
+    alert("Please Enter Roll Number and Registration Number");
+
+  }
+
+}
+
+</script>
 
 </body>
 </html>
